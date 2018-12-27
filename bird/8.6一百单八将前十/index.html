@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log('%c 水浒排行Top10','color:red;font-size:30px;text-shadow:0 0 5px black')
+			function Fn(a,b,c){
+				this.rank = a;
+				this.name = b;
+				this.sex = c;
+//				console.log('%cNo.'+a+';  name:'+b+';  sex:'+c,'color:green;font-size:20px')
+				console.log('%cNo.%d\n %c name:%s\n %c sex:%s ','color:red;font-size:20px',a,'color:green;font-size:20px',b,'color:blue;font-size:20px',c)
+			}
+			var obj1 = new Fn( 1,'宋  江','男');
+			var obj2 = new Fn( 2,'卢俊义','男');
+			var obj3 = new Fn( 3,'吴  用','男');
+			var obj4 = new Fn( 4,'公孙胜','男');
+			var obj5 = new Fn( 5,'关  胜','男');
+			var obj6 = new Fn( 6,'林  冲','男');
+			var obj7 = new Fn( 7,'秦  明','男');
+			var obj8 = new Fn( 8,'呼延灼','男');
+			var obj9 = new Fn( 9,'花  荣','男');
+			var obj10 = new Fn(10,'柴 进','男');
+			
+			
+			var arr = [{
+				name:'宋江',
+				sex:'男',
+				rank:1
+			},
+			{
+				name:'卢俊义',
+				sex:'男',
+				rank:2
+			},
+			{
+				name:'吴用',
+				sex:'男',
+				rank:3
+			}];
+			function My(name){
+				this.name = name ;
+			}
+			for (var i = 0; i< arr.length;i++){
+				console.log(new My(arr[i]).name)	
+			}
+		</script>
+	</body>
+</html>

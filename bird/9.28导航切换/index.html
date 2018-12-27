@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				overflow: hidden;
+			}
+			li{
+				float: left;
+				list-style: none;
+				border: 1px solid black;
+				padding: 0 15px;
+				line-height: 40px;
+				cursor: pointer;
+			}
+			.content{
+				width: 240px;
+				height: 200px;
+				border: 1px solid black;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 200px;
+			}
+			.cur{
+				background: black;
+				color: white;
+				cursor: default;
+			}
+		</style>
+		<script src="js/angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<div class="nav" ng-controller="nav">
+			<ul>
+				<!--<li ng-repeat="(i,v) in title" ng-click="change()" ng-class="{cur:flag[i]}">{{v}}</li>-->
+				<li ng-repeat="v in title" ng-click="change($index)" ng-class="{cur:$index == index}">{{v}}</li>
+			</ul>
+			<div class="content" ng-repeat="v in content" ng-show="$index == index">{{v}}</div>
+		</div>
+	</body>
+	<script>
+		var myapp = angular.module('myApp',[])
+		.controller('nav',function($scope){
+			$scope.title = ['导航一','导航二','导航三'];
+			$scope.content = ['内容一','内容二','内容三'];
+//			$scope.flag = [true,false,false]; 
+			$scope.index = 0;
+			$scope.change = function(i){
+//				for(var j = 0; j < $scope.flag.length; j++){
+//					$scope.flag[j] = j == this.$index ? true : false
+//				}
+//				$scope.index = this.$index;
+				$scope.index = i
+			}
+		})
+	</script>
+</html>

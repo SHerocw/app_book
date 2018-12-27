@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.banner{
+				width: 960px;
+				height: 540px;
+				margin: 50px auto;
+				position: relative;
+			}
+			img{
+				width: 960px;
+				height: 540px;
+				position: absolute;
+				display: none;
+			}
+			img:first-child{
+				display: block;
+			}
+			.dot{
+				position: absolute;
+				bottom: 30px;
+				right: 80px;
+			}
+			span{
+				width: 12px;
+				height: 12px;
+				display: inline-block;
+				margin: 3px;
+				border-radius: 50%;
+				background: #ccc;
+				cursor: pointer;
+			}
+			.cur{
+				background: black;
+			}
+			.arrow{
+				width: 35px;
+				height: 70px;
+				border-radius: 0 5px 5px 0;
+				position: absolute;
+				top: 45%;
+				cursor: pointer;
+				background: rgba(0,0,0,0.7);
+			}
+			.arrowRight{
+				right: 0;
+				border-radius: 5px 0 0 5px;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="img">
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+			</div>
+			<div class="dot">
+				<span class="cur"></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div class="arrow arrowLeft"></div>
+			<div class="arrow arrowRight"></div>
+		</div>
+		<script>
+			$(function(){
+				var num = 0;
+				var time = null;
+				function change(){
+					$('img').eq(num).stop(true,true).fadeIn(1000).siblings().fadeOut(1000);
+					$('span').eq(num).addClass('cur').siblings().removeClass('cur')
+				}
+				function turn(){
+					num = num >= $('img').length - 1 ? 0 : ++num;
+					change()
+				}
+				function clear(){
+					clearInterval(time)
+				}
+				function set(){
+					time = setInterval(turn,3000)
+				}
+				time = setInterval(turn,3000)
+				$('span').bind({
+					click : function(){
+						$(this).addClass('cur').siblings().removeClass('cur');
+						$('img').eq($(this).index()).fadeIn(1000).siblings().fadeOut(1000);
+						num = $(this).index()
+					},
+					mouseover : clear,
+					mouseout : set
+				})
+				$('.arrowRight').bind({
+					click : turn,
+					mouseover : clear,
+					mouseout : set
+				})
+				$('.arrowLeft').bind({
+					click : function(){
+						num = num <= 0 ? $('img').length - 1 : --num;
+						change()
+					},
+					mouseover : clear,
+					mouseout : set
+				})
+			})
+		</script>
+	</body>
+</html>

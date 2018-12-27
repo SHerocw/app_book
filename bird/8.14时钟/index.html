@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.box{
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				background: url(img/timg.jpg) no-repeat;
+				background-size: cover;
+				margin:  100px auto;
+				border: 3px solid #555;
+				position: relative;
+			}
+			.roundel, .num{
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.dot{
+				width: 4px;
+				height: 10px;
+				background: #555;
+				position: absolute;
+				top: 0;
+				left: 248px;
+				transform-origin: center 248px;
+			}
+			.figure{
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				top: 10px;
+				left: 235px;
+				transform-origin: center 240px;
+				font-size: 25px;
+				line-height: 30px;
+				text-align: center;
+			}
+			.pointer{
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				position: absolute;
+				left: 240px;
+				transform-origin: center bottom;
+			}
+			.hour{
+				border-bottom: 100px solid #555555;
+				top: 150px;
+			}
+			.min{
+				border-bottom: 150px solid #555555;
+				top: 100px;
+			}
+			.sec{
+				border-bottom: 220px solid #990000;
+				top: 30px;
+			}
+			.me{
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background: url(img/20140715135419_HYaVL.thumb.700_0.jpeg);
+				background-size: cover;
+				position: absolute;
+				top: 220px;
+				left: 220px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="roundel"></div>
+			<div class="num"></div>
+			<div class="hour pointer"></div>
+			<div class="min pointer"></div>
+			<div class="sec pointer"></div>
+			<div class="me"></div>
+		</div>
+		<script>
+			function getCN(classname){
+				return document.getElementsByClassName(classname);
+			}
+			var box = getCN('box')[0];
+			var num = getCN('num')[0];
+			var roundel = getCN('roundel')[0];
+			var str = ''
+			for(var i = 0 ;i < 60; i ++){
+				str += '<div class="dot"></div>';
+			}
+			roundel.innerHTML = str;
+			var dot = getCN('dot');
+			for(var j = 0; j < dot.length; j ++){
+				if(j % 5 == 0 ){
+					dot[j].style.background = 'transparent';
+				}
+				dot[j].style.transform = 'rotate(' + 6 * j + 'deg)';
+			}
+			var arr = [1,2,3,4,5,6,7,8,9,10,11,12];
+			var strn = '';
+			for(var k = 0; k <arr.length; k ++){
+				strn += '<div class="figure">'+ arr[k] +'</div>';
+			}
+			num.innerHTML = strn;
+			var figure = getCN('figure');
+			for(var l = 0; l < figure.length; l ++){
+				figure[l].style.transform = 'rotate(' + 30 *( l+1 )+ 'deg)';
+			}
+			var hour = getCN('hour')[0];
+			var min = getCN('min')[0];
+			var sec = getCN('sec')[0];
+			function turn(){
+				var date = new Date();
+				var s = date.getSeconds();
+				var m = date.getMinutes() + s/60;
+				var h = date.getHours() + m/60 + s/3600;
+				hour.style.transform = 'rotate('+30 * h+'deg)';
+				min.style.transform = 'rotate('+6 * m+'deg)';
+				sec.style.transform = 'rotate('+6 * s+'deg)';
+			}
+			turn();
+			setInterval(turn,1000);
+		</script> 
+	</body>
+</html>

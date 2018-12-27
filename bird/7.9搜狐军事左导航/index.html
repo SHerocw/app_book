@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.all{
+				width: 1200px;
+				margin: auto;
+			}
+			.lnav{
+				width: 140px;
+				height: 620px;
+				background-color: #eee;
+			}
+			.logo{
+				margin-top: 20px;
+				width: 140px;
+				height: 76px;
+				border-bottom: 2px solid #6E7D1E;
+				background: url(http://sohu-media.bjcnc.scs.sohucs.com/os/channels/logo/mil_logo.png) no-repeat center;
+			}
+			.top{
+				height: 80px;
+				position: relative;
+				border: 1px solid #eee;
+				border-right: none;         /* 还可以设上、左外边距为-1 */
+				padding-left: 20px;
+			}
+			span{
+				line-height: 26px;
+				font-size: 14px;
+			}
+			.s{
+				font-weight: bold;
+				color: #6E7D1E;
+			}
+			.x{
+				word-spacing: 16px;
+			}
+			.yb{
+				width: 230px;
+				height: 100%;/* 高度设为100%，自动继承父级高度，左边高度改动会跟着改动 */
+				position: absolute;
+				left: 139px;
+				top:-1px;
+				background-color: rgba(255,255,255,0.9);
+				border: 1px solid #6E7D1E;
+				border-left: none;
+				display: none;
+				padding-left: 20px;
+			}
+			.top:hover{
+				background-color: white;
+				border-bottom: 1px solid #6E7D1E;
+				border-top: 1px solid #6E7D1E;
+				border-left: 1px solid #6E7D1E;
+			}
+			.top:hover .yb{
+				display: block;
+			}
+			.bottom{
+				margin-left: 20px;
+			}
+			.z{
+				margin-left: 70px;
+
+			}
+			.top:hover .z{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="lnav">
+				<div class="logo">
+					<a href=""></a>
+				</div>
+				<div class="top">
+					<span class="s">热点</span> <span class="z"> ></span><br />
+					<span class="x">土耳其 加贺<br />导弹 菲律宾</span>
+					<div class="yb">
+						<span class="x" >陆军 朝鲜 将军 驱逐舰 <br />朴槿惠 南海 轰6 军机</span>
+					</div>
+				</div>
+				<div class="bottom">
+					<p>
+						<span class="s">国防观察</span><br />
+						<span class="x">武警 南海<br />台湾 解放军</span>
+					</p>
+					<p>
+						<span class="s">环球军情</span><br />
+						<span class="x">美国 俄罗斯<br />中东 联合国</span>
+					</p>
+					<p>
+						<span class="s">兵器解析</span><br />
+						<span class="x">航母 萨德<br />坦克 战斗机</span>
+					</p>
+					<p>
+						<span class="s">史海谜云</span><br />
+						<span class="x">林彪 彭德怀</span>
+					</p>
+					<p>
+						<span class="s">军事杂谈</span><br />
+						<span class="x">将军 演习<br />杂谈 特朗普</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

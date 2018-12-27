@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#boxs{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="boxs"></div>
+		<script src="js/common.js"></script>
+		<script>
+			window.onload = function(){
+				var boxs = document.getElementById('boxs')
+				console.log(getInner().h)
+				boxs.onmousedown = function(evt){
+					var e = evt || window.event;
+					this.startX = e.offsetX;
+					this.startY = e.offsetY;
+					this.flag = true;
+				}	
+				document.onmousemove = function(evt){
+					var e = evt || window.event;
+					if(boxs.flag){
+						if(e.clientX < boxs.startX){
+							boxs.style.left = 0
+						}else if(e.clientX - boxs.startX > getInner().w - parseInt(getStyle(boxs,'width'))){
+							boxs.style.left = getInner().w - parseInt(getStyle(boxs,'width')) + 'px'
+						}else{
+							boxs.style.left = e.clientX - boxs.startX + 'px'
+						}
+						if(e.clientY < boxs.startY){
+							boxs.style.top = 0
+						}else if(e.clientY - boxs.startY > getInner().h - parseInt(getStyle(boxs,'height'))){
+							boxs.style.top = getInner().h - parseInt(getStyle(boxs,'height')) + 'px'
+						}else{
+							boxs.style.top = e.clientY - boxs.startY + 'px'
+						}
+					}
+				}
+				boxs.onmouseup = function(){
+					boxs.flag = false
+				}
+			}
+		</script>
+	</body>
+</html>

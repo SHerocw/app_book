@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			img{
+				height: 142px;
+				width: 250px;
+				transform: rotateX(0deg);	
+			}
+			img,.x{
+				height: 142px;
+				width: 250px;
+				backface-visibility: hidden;
+				transition:all 1s;	
+			}
+			.x{
+				height: 142px;
+				width: 250px;
+				background-color: red;	
+				transform: rotateX(-180deg);
+			}
+			.y:hover img{
+				transform: rotateX(180deg);
+			}
+			.y:hover .x{
+				transform: rotateX(0deg);
+			}
+			.a,.a1{
+				position: absolute;
+				left: 250px;
+				top: 0px;
+			}
+			.b,.b1{
+				position: absolute;
+				left:500px;
+				top: 0px;
+			}
+			.c,.c1{
+				position: absolute;
+				left: 1000px;
+				top:0px;
+			}
+			.d,.d1{
+				position: absolute;
+				left: 1250px;
+				top: 0px;
+			}
+			.e,.e1{
+				position: absolute;
+				left: 0px;
+				top: 142px;
+			}
+			.f,.f1{
+				position: absolute;
+				left: 750px;
+				top: 142px;
+			}
+			.g,.g1{
+				position: absolute;
+				left: 1500px;
+				top: 142px;
+			}
+			.h,.h1{
+				position: absolute;
+				left: 0px;
+				top: 284px;
+			}
+			.i,.i1{
+				position: absolute;
+				left: 1500px;
+				top: 284px;
+			}
+			.j,.j1{
+				position: absolute;
+				left: 150px;
+				top: 426px;
+			}
+			.k,.k1{
+				position: absolute;
+				left: 1350px;
+				top: 426px;
+			}
+			.l,.l1{
+				position: absolute;
+				left: 300px;
+				top: 568px;
+			}
+			.m,.m1{
+				position: absolute;
+				left: 1200px;
+				top: 568px;
+			}
+			.n,.n1{
+				position: absolute;
+				left: 450px;
+				top: 710px;
+			}
+			.o,.o1{
+				position: absolute;
+				left: 1050px;
+				top: 710px;
+			}
+			.p,.p1{
+				position: absolute;
+				left: 600px;
+				top: 852px;
+			}
+			.q,.q1{
+				position: absolute;
+				left: 900px;
+				top: 852px;
+			}
+			.r,.r1{
+				position: absolute;
+				left: 750px;
+				top: 994px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="y">
+			<div class="a"><img src="img/t1.jpg" /></div>
+			<div class="a1 x" style="text-align: center;"><span style="font-size: 30px;">大自然的惩罚</span></div>
+		</div>
+		<div class="y">
+			<div class="b"><img src="img/t10.jpg" /></div>
+			<div class="b1 x" style="text-align: center;"><span style="font-size: 30px;">人生如此艰难，对会输这事，就不好拆穿了</span></div>
+		</div>
+		<div class="y">
+			<div class="c"><img src="img/t11.jpg"/></div>
+			<div class="c1 x" style="text-align: center;"><span style="font-size: 30px;">意志很犀利嘛，可惜比不过我的剑刃</span></div>	
+		</div>
+		<div class="y">
+			<div class="d"><img src="img/t12.jpg" /></div>
+			<div class="d1 x" style="text-align: center;"><span style="font-size: 30px;">一个人可以被毁灭，但绝不可以被打败</span></div>	
+		</div>
+		<div class="y">
+			<div class="e"><img src="img/t13.jpg" /></div>
+			<div class="e1 x" style="text-align: center;"><span style="font-size: 30px;">觉醒吧，猎杀时刻</span></div>		
+		</div>
+		<div class="y">
+			<div class="f"><img src="img/t9.jpg" /></div>
+			<div class="f1 x" style="text-align: center;"><span style="font-size: 30px;">欢迎来到王者荣耀</span></div>
+		</div>
+		<div class="y">
+			<div class="g"><img src="img/t14.jpg" /></div>
+			<div class="g1 x" style="text-align: center;><span style="font-size: 30px;">　没人气的家伙，不值得浪费炮火</span></div>	
+		</div>
+		<div class="y">
+			<div class="h"><img src="img/t15.jpg" /></div>
+			<div class="h1 x" style="text-align: center;"><span style="font-size: 30px;">趴在朕脚下的蝼蚁，除了默默死去，没有第二条路</span></div>	
+		</div>
+		<div class="y">
+			<div class="i"><img src="img/t16.jpg" /></div>
+			<div class="i1 x" style="text-align: center;"><span style="font-size: 30px;">摩擦摩擦，是魔鬼的步伐</span></div>	
+		</div>
+		<div class="y">
+			<div class="j"><img src="img/t17.jpg" /></div>
+			<div class="j1 x" style="text-align: center;"><span style="font-size: 30px;">生存就是最谨慎的战斗</span></div>	
+		</div>
+		<div class="y">
+			<div class="k"><img src="img/t18.jpg" /></div>
+			<div class="k1 x" style="text-align: center;"><span style="font-size: 30px;">諦めない</span></div>	
+		</div>
+		<div class="y">
+			<div class="l"><img src="img/t2.jpg" /></div>
+			<div class="l1 x" style="text-align: center;"><span style="font-size: 30px;">虚伪和无能是两回事，适应时代方可生存</span></div>	
+		</div>
+		<div class="y">
+			<div class="m"><img src="img/t3.jpg" /></div>
+			<div class="m1 x" style="text-align: center;"><span style="font-size: 30px;">彪悍的人生不需要解释</span></div>
+		</div>
+		<div class="y">
+			<div class="n"><img src="img/t5.jpg" /></div>
+			<div class="n1 x" style="text-align: center;"><span style="font-size: 30px;">自以为穿越黑暗森林，而猜疑终究坚不可摧</span></div>		
+		</div>
+		<div class="y">
+			<div class="o"><img src="img/t6.jpg" /></div>
+			<div class="o1 x" style="text-align: center;"><span style="font-size: 30px;">比黑暗，更深沉的黑暗，辉映着永恒</span></div>	
+		</div>
+		<div class="y">
+			<div class="p"><img src="img/t7.jpg" /></div>
+			<div class="p1 x" style="text-align: center;"><span style="font-size: 30px;">谁与争锋! 来,做个了断吧</span></div>	
+		</div>
+		<div class="y">
+			<div class="q"><img src="img/t8.jpg" /></div>
+			<div class="q1 x" style="text-align: center;"><span style="font-size: 30px;">我就是法律的化身，为无辜者代言</span></div>	
+		</div>
+		<div class="y">
+			<div class="r"><img src="img/t0.jpg" /></div>
+			<div class="r1 x" style="text-align: center;"><span style="font-size: 30px;">victory</span></div>	
+		</div>
+		<audio src="audio/八点四十八 - 王者荣耀主题曲（燃版）.mp3" autoplay loop></audio>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.link{
+				display: none;
+				margin: auto;
+				width: 300px;
+				text-align: center;
+				background: palegreen;
+				
+			}
+			.link:hover{
+				background: burlywood;
+			}
+			a{
+				line-height: 90px;
+				text-decoration: none;
+				color: white;
+				font-size: 50px;
+				font-family: '华文行楷'
+			}
+			.nav{
+				margin: auto;
+				margin-top: 100px;
+				width: 300px;
+				background: burlywood;
+				text-align: center;
+				padding: 5px 0;
+				border-radius: 5px;
+				color: white;
+				cursor: pointer;
+				font-size: 50px;
+				font-family: '华文行楷'
+			}
+			.nav:hover{
+				background: #98FB98;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div class="nav">跳转</div>
+		<div class="link"><a href="index.html#0">第一块</a></div>
+		<div class="link"><a href="index.html#1">第二块</a></div>
+		<div class="link"><a href="index.html#2">第三块</a></div>
+		<script>
+			$('.nav').click(function(){
+				$('.link').slideToggle(200)
+			})
+		</script>
+	</body>
+</html>

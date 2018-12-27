@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			.red1{
+				color: #242424;
+				cursor: pointer;
+			}
+			.red2{
+				color: #C31618;
+			}
+			.red1:hover{
+				color: #C31618;
+			}
+			.head{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.hnav{
+				float: right;
+				overflow: hidden;
+				margin-top: 25px;
+				height: 37px;
+			}
+			.head img{
+				float: left;
+			}
+			.hnav>div{
+				float: left;
+				padding: 6px 15px;
+				font-size: 14px;
+				line-height: 25px;
+				overflow: hidden;
+				transition: all .5s;
+			}
+			.hnav>div:hover{
+				transform: translateY(-25px);
+				color: #C31618;
+			}
+			.home{
+				color: #C31618;
+			}
+			.hot{
+				width: 19px;
+				height: 11px;
+				background: url(img/hot.png) no-repeat;
+				position: absolute;
+				top: 0px;
+				left: 67px;
+			}
+			.vid{
+				position: relative;
+			}
+			.nav{
+				height: 44px;
+				background: #333333;
+				position: relative;
+			}
+			.nav>div{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.d{
+				padding: 0 22px;
+				float: left;
+				line-height: 44px;
+				font-size: 15px;
+				color: #AAAAAA;
+			}
+			.d:hover{
+				background: #242424;
+				color: #FFFFFF;
+			}
+			.shop{
+				background-color: #C31618;
+				color: white;
+			}
+			.shop:hover{
+				background-color: #D4181A;
+			}
+			.search{
+				width: 20px;
+				height: 20px;
+				float: right;
+				margin-top: 11px;
+				background: url(img/hot.png) no-repeat;
+				background-position: 0 -12px;
+			}
+			input{
+				float: right;
+				width: 150px;
+				height: 20px;
+				color: white;
+				outline: none;
+				border-radius: 15px;
+				margin: 10px 10px;
+				padding: 0 10px;
+				background: #242424;
+				border: 1px solid #AAAAAA;
+			}
+			.select{
+				width: 100%;
+				background-color: white;
+				height: 0;
+				overflow: hidden;
+				position: absolute;
+				top: 44px;
+				left: 0;
+				transition: all 1s;
+				z-index: 1;
+			}
+			.d:hover .select{
+				height: 228px;
+			}
+			.sel{
+				width: 1200px;
+				margin: auto;
+			}
+			.s{
+				float: left;
+				width: 200px;
+				margin-top: 30px;
+				text-align: center;
+			}
+			.s img{
+				width: 199px;
+				border-right: 1px solid #AAAAAA;
+			}
+			.sr span{
+				padding: 30px 20px;
+				font-size: 12px;
+			}
+			.s span{
+				font-size: 12px;
+			}
+			.main{
+				position: relative;
+				margin-bottom: 20px;
+			}
+			.main img{
+				margin: auto;
+				width: 100%;
+			}
+			.dot{
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				overflow: hidden;
+			}
+			.dot div{
+				width: 10px;
+				height: 10px;
+				border-radius:50% ;
+				background: #6C6C6C;
+				margin: 5px;
+				float: left;
+			}
+			.jtl,.jtr{
+				width: 150px;
+				height: 50px;
+				position: absolute;
+				top: 45%;
+				overflow: hidden;
+			}
+			.jtl{
+				left: 20%;
+			}
+			.jtr{
+				right: 20%;
+			}
+			.jt1,.jt2{
+				width: 48px;
+				height: 48px;
+				border: 1px solid #AAAAAA;
+				color: #AAAAAA;
+				font-size: 40px;
+				border-radius:50% ;
+				position: absolute;
+				text-align: center;
+			}
+			.jt1{
+				left: -50px;
+			}
+			.jt2{
+				right: -50px;
+			}
+			.main:hover .jt1{
+				transform: translateX(120px);
+				transition: all 0.5s;
+			}
+			.main:hover .jt2{
+				transform: translateX(-120px);
+				transition: all 0.5s;
+			}
+			.jt1:hover,.jt2:hover{
+				color: #C31618;
+				border: 1px solid #C31618;
+			}
+			.news{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.nl{
+				float: left;
+				overflow: hidden;
+			}
+			.nl>div{
+				float: left;
+			}
+			.nl1{
+				color: #C31618;
+				border: 1px solid #C31618;
+				font-size: 15px;
+				border-radius: 15px;
+				padding: 0 10px;
+			}
+			.nl2{
+				width: 500px;
+				height: 20px;
+				margin-left: 20px;
+				animation: gd 35s infinite;
+			}
+			@keyframes gd{
+				10%{
+					transform: translateY(-20px);
+				}
+				20%{
+					transform: translateY(-40px);
+				}
+				30%{
+					transform: translateY(-60px);
+				}
+				40%{
+					transform: translateY(-80px);
+				}
+				50%{
+					transform: translateY(-100px);
+				}
+				60%{
+					transform: translateY(-80px);
+				}
+				70%{
+					transform: translateY(-60px);
+				}
+				80%{
+					transform: translateY(-40px);
+				}
+				90%{
+					transform: translateY(-20px);
+				}
+				100%{
+					transform: translateY(0px);
+				}
+			}
+			.nl2>div{	
+				overflow: hidden;
+			}
+			.wz {
+				float: left;
+				font-size: 14px;
+				line-height: 20px;
+			}
+			.time{
+				float: right;
+				font-size: 14px;
+				line-height: 20px;
+			}
+			.nr{
+				float: right;
+				overflow: hidden;
+			}
+			.nr>div{
+				float: left;
+				color: #666666;
+				font-size: 14px;
+				margin-left: 10px;
+			}
+			.nr3{
+				width: 20px;
+				height: 20px;
+				background: url(img/hot.png) no-repeat;
+				background-position: 0 -40px;
+			}
+			.nr1{
+				word-spacing: 10px;
+			}
+			.exq{
+				overflow: hidden;
+			}
+			.e{
+				width: 25%;
+				float: left;
+				height: 254px;
+				margin-top: 20px;
+			}
+			.e1{
+				background: url(img/m1.jpg);
+			}
+			.e2{
+				background: url(img/m2.jpg);
+			}
+			.e3{
+				background: url(img/m3.jpg);
+			}
+			.e4{
+				background: url(img/m4.jpg);
+			}
+			.shade{
+				width: 100%;
+				height: 254px;
+				background-color: rgba(0,0,0,0);
+				opacity: 0;
+				color: white;
+				text-align: center;
+				position: relative;
+				transition: .5s;	
+			}
+			.e p{
+				width: 100%;
+				position: absolute;
+			}
+			.p1{
+				bottom: 40px;
+				font-size: 25px;
+				transition: all .5s;
+			}
+			.p2{
+				bottom: 10px;
+				transition: all 1s;
+			}
+			.e:hover .shader1{
+				background-color: rgba(0,0,0,0.6);
+			}
+			.e:hover .shade{
+				opacity: 1;
+			}
+			.e:hover .p1{
+				transform: translateY(-25px);
+			}
+			.e:hover .p2{
+				transform: translateY(-30px);
+			}
+			.like{
+				width: 100%;
+				background: #F6F6F6;
+				padding: 30px 0;
+			}
+			.likec{
+				width: 1200px;
+				margin: auto;
+			}
+			.title{
+				overflow: hidden;
+				margin-bottom: 20px;
+			}
+			.t1{
+				float: left;
+				font-size: 25px;
+				line-height: 40px;
+			}
+			.t2{
+				float: right;
+				font-size: 14px;
+				color: #666666;
+				border: 1px solid #666666;
+				border-radius: 15px;
+				padding: 0 10px;
+			}
+			.product{
+				background-color: #FFFFFF;
+				padding: 20px 0;
+			}
+			.product>div{
+				overflow: hidden;
+			}
+			.pro{
+				width: 299px;
+				text-align: center;
+				float: left;
+				transition: all .6s;
+			}
+			.text span{
+				font-size: 14px;
+				line-height: 30px;
+			}
+			.te{
+				color: #AAAAAA;
+			}
+			.sg{
+				float: left;
+				width: 0px;
+				height: 150px;
+				margin-top: 50px;
+				border-left: 1px solid #AAAAAA;
+			}
+			.pro:hover{
+				transform: translateY(-10px);
+			}
+			.label{
+				text-align: center;
+				padding: 20px 0;
+			}
+			.label span{
+				text-align: center;
+				border-radius:15px ;
+				margin: 0 15px;
+				padding: 0 15px;
+				cursor: pointer;
+				font-size: 14px;
+			}
+			.l1{
+				background-color: #45BEF5;
+				color: white;
+			}
+			.l2{
+				color: #3ccd89;
+				border: 1px solid #3ccd89;
+			}
+			.l3{
+				color: #ff9239;
+				border: 1px solid #ff9239;
+			}
+			.l4{
+				color: #ef5a50;
+				border: 1px solid #ef5a50;
+			}
+			.l5{
+				color: #45BEF5;
+				border: 1px solid #45BEF5;
+			}
+			.l2:hover{
+				color: white;
+				background-color:  #3ccd89;
+			}
+			.l3:hover{
+				color: white;
+				background-color:  #ff9239;
+			}
+			.l4:hover{
+				color: white;
+				background-color: #ef5a50;
+			}
+			.l5:hover{
+				color: white;
+				background-color: #45BEF5;
+			}
+			.contact{
+				border-bottom: 1px solid #AAAAAA;
+				padding: 40px 0;
+			}
+			.con{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.c{
+				border-right:1px solid #AAAAAA ;
+				float: left;
+				padding: 10px 0;
+			}
+			.c1{
+				padding-right: 90px;
+			}
+			.c2{
+				padding: 10px 90px;
+			}
+			.c4{
+				border: none;
+				padding-left: 90px;
+			}
+			.c img{
+				transition: all 0.5s;
+				float: left;
+			}
+			.c span{
+				font-size: 20px;
+				line-height: 40px;
+				margin-left: 30px;
+				transition: all 0.5s;
+				float: left;
+			}
+			.c:hover img{
+				transform: translate(0,-5px);
+			}
+			.c:hover span{
+				color: #AAAAAA;
+			}
+						.foot{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.dl{
+				float: left;
+				overflow: hidden;
+			}
+			.dl dl{
+				float: left;
+				margin-left: 40px;
+			}
+			.dl dt{
+				font-size: 17px;
+				line-height: 50px;
+			}
+			.dl dd{
+				font-size: 14px;
+				color: #666666;
+				margin-left: 0px;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			.dl dd:hover{
+				color: #242424;
+			}
+			.phone{
+				width: 250px;
+				height: 132px;
+				float: right;
+				margin-top: 30px;
+				text-align: right;
+				border-left: 1px solid #AAAAAA;
+			}
+			.code{
+				float: right;
+				text-align: center;
+				width: 100px;
+				margin: 40px 25px;
+			}
+			.bottom{
+				background: #F6F6F6;
+				width: 100%;
+				height: 40px;
+			}
+			.bot{
+				width: 1200px;
+				margin: auto;
+				padding: 15px 0;
+			}
+			.bot span{
+				font-size: 15px;
+				color: #6C6C6C;
+				word-spacing: 15px;
+			}
+			.rb{
+				position: fixed;
+				right: 30px;
+				bottom: 50px;
+			}
+			.rbt{
+				height: 33px;
+				width: 33px;
+				padding: 6px;
+				letter-spacing: 3px;
+				background-color: #C31618;
+				color: white;
+				font-size: 13px;	
+			}
+			.rbb{
+				height: 43px;
+				width: 43px;
+				transform: rotate(-90deg);
+				font-size: 50px;
+				line-height: 35px;
+				border: 1px solid #6C6C6C;
+				color: #6C6C6C;
+				margin-top: 10px;
+				font-weight: lighter;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<img src="img/201712291542012684.png"/>
+			<div class="hnav">
+				<div class="home">首页<br />HOME</div>
+				<div>关于利仁<br />ABOUT</div>
+				<div class="vid">视频专区<br />VIDEO
+					<div class="hot"></div>
+				</div>
+				<div>产品中心<br />PRODUCT</div>
+				<div>外贸业务<br />TRADE</div>
+				<div>招商合作<br />PARTNER</div>
+				<div>联系利仁<br />CONTACT</div>
+				<div>English <br />English</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div>
+				<div class="d">电饼铛
+					<div class="select">
+						<div class="sel">
+							<div class="s">
+								<img src="img/d1.jpg"/>
+								<span class="red1">利仁（Liven）LR-D3020A</span><br /><span class="red2">查看详情</span>
+							</div>
+							<div class="s">
+								<img src="img/d2.jpg"/>
+								<span class="red1">利仁（Liven）LR-D3020A</span><br /><span class="red2">查看详情</span>
+							</div>
+							<div class="s">
+								<img src="img/d3.jpg"/>
+								<span class="red1">利仁（Liven）LR-D3020A</span><br /><span class="red2">查看详情</span>
+							</div>
+							<div class="s">
+								<img src="img/d4.jpg"/>
+								<span class="red1">利仁（Liven）LR-D3020A</span><br /><span class="red2">查看详情</span>
+							</div>
+							<div class="s">
+								<img src="img/d5.jpg"/>
+								<span class="red1">利仁（Liven）LR-D3020A</span><br /><span class="red2">查看详情</span>
+							</div>
+							<div class="sr">
+								<span class="red2">热门分类</span><br />
+								<span class="red1">21cm(含)-25cm(含)电饼铛</span><br />
+								<span class="red1">26cm(含)-30cm(含)电饼铛</span><br />
+								<span class="red1">31CM及以上电饼铛</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d">电火锅</div>
+				<div class="d">电压力锅</div>
+				<div class="d">电烧烤盘</div>
+				<div class="d">电饭煲</div>
+				<div class="d">电蒸锅</div>
+				<div class="d">电水瓶</div>
+				<div class="d">电水壶</div>
+				<div class="d">创新产品</div>
+				<div class="d shop">网上购物</div>
+				<div class="search"></div>
+				<input type="text" placeholder="电饼铛" />
+			</div>
+		</div>
+		<div class="main">
+			<img src="img/dt.jpg"/>
+			<div class="dot">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div style="width: 8px ;height: 8px ;background: white;border: 1px solid #C31618;"></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="jtl">
+				<div class="jt1"><</div>
+			</div>
+			<div class="jtr">
+				<div class="jt2">></div>
+			</div>
+		</div>
+		<div class="news">
+			<div class="nl">
+				<div class="nl1">NEWS</div>
+				<div class="nl2">
+					<div><div class="wz red1">利仁引领中国电饼铛一键拆盘，速脆时代！！</div><div class="time">2016-08-02</div></div>
+					<div><div class="wz red1">致敬心中的美猴王</div><div class="time">2016-06-19</div></div>
+					<div><div class="wz red1">利仁美猴王电饼铛引领可拆洗电饼铛新革命</div><div class="time">2016-05-13</div></div>
+					<div><div class="wz red1">告别科比，告别清洗难时代！</div><div class="time">2016-04-14</div></div>
+					<div><div class="wz red1">利仁电器与意大利奥运冠军-安东尼奥 罗西的文化之旅</div><div class="time">2016-03-08</div></div>
+					<div><div class="wz red1">女神节最好的礼物！</div><div class="time">2016-03-08</div></div>
+				</div>
+			</div>
+			<div class="nr">
+				<div class="nr1 red1">精彩活动 丨</div>
+				<div class="red1">新品上市</div>
+				<div class="nr3 red1"></div>
+				<div class="red1">新浪微博</div>
+			</div>
+		</div>
+		<div class="exq">
+			<div class="e e1">
+				<div class="shade shader1">
+					<p class="p1">精致美食</p>
+					<p class="p2">Exquisite cate</p>
+				</div>
+			</div>
+			<div class="e e2">
+				<div class="shade shader1">
+					<p class="p1">精致生活</p>
+					<p class="p2">Exquisite life</p>
+				</div>
+			</div>
+			<div class="e e3">
+				<div class="shade shader1">
+					<p class="p1">精致服务</p>
+					<p class="p2">Exquisite serve</p>
+				</div>
+			</div>
+			<div class="e e4">
+				<div class="shade">
+					<p class="p2">利仁视频专区</p>
+				</div>
+			</div>
+		</div>
+		<div class="like">
+			<div class="likec">
+				<div class="title">
+					<div class="t1">猜你喜欢</div>
+					<div class="t2">换一批 ></div>
+				</div>
+				<div class="product">
+					<div>
+						<div class="pro">
+							<img src="img/x1.jpg"/>
+							<div class="text">
+								<span class="red1 te">利仁（Liven）LR-D3020A </span><br /><span>查看详情</span>
+							</div>
+						</div>
+						<div class="sg"></div>
+						<div class="pro">
+							<img src="img/x2.jpg"/>
+							<div class="text">
+								<span class="red1 te">利仁（Liven）LR-D3020A </span><br /><span>查看详情</span>
+							</div>
+						</div>
+						<div class="sg"></div>
+						<div class="pro">
+							<img src="img/x3.jpg"/>
+							<div class="text">
+								<span class="red1 te">利仁（Liven）LR-D3020A </span><br /><span>查看详情</span>
+							</div>
+						</div>
+						<div class="sg"></div>
+						<div class="pro">
+							<img src="img/x4.jpg"/>
+							<div class="text">
+								<span class="red1 te">利仁（Liven）LR-D3020A </span><br /><span>查看详情</span>
+							</div>
+						</div>
+					</div>
+					<div class="label">
+						<span class="l1">电饼铛</span>
+						<span class="l2">电火锅</span>
+						<span class="l3">电烧烤盘</span>
+						<span class="l4">电压力锅</span>
+						<span class="l5">电水壶</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contact">
+			<div class="con">
+				<div class="c c1">
+					<img src="img/c1.png"/>
+					<span>在线选购</span>
+				</div>
+				<div class="c c2">
+					<img src="img/c2.png"/>
+					<span>实体店选购</span>
+				</div>
+				<div class="c c2">
+					<img src="img/c3.png"/>
+					<span>售后服务</span>
+				</div>
+				<div class="c c4">
+					<img src="img/c4.png"/>
+					<span>联系利仁</span>
+				</div>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="dl">
+				<dl>
+					<dt>精致美食</dt>
+					<dd>健康食谱</dd>
+					<dd>饼食文化</dd>
+					<dd>创意美食</dd>
+				</dl>
+				<dl>
+					<dt>精致生活</dt>
+					<dd>品质优生活</dd>
+					<dd>健康生活</dd>
+					<dd>厨房新概念</dd>
+				</dl>
+				<dl>
+					<dt>精致服务</dt>
+					<dd>常见问题</dd>
+					<dd>售后服务</dd>
+					<dd>客户留言</dd>
+				</dl>
+				<dl>
+					<dt>关于利仁</dt>
+					<dd>新闻动态</dd>
+					<dd>企业简介</dd>
+					<dd>发展历程</dd>
+					<dd>工作机会</dd>
+				</dl>
+			</div>
+			<div class="phone">
+				<span style="color: #C31618;font-size: 30px;">400-882-3366</span>
+				<br />
+				<br />
+				<span style="color: #6C6C6C;font-size: 14px;">周一至周日 7:30-19:30</span>
+				<br />
+				<br />
+				<span style="color: #C31618;font-size: 14px;padding: 0 15px;border: 1px solid #C31618;">微商城</span>
+				<span style="color: #C31618;font-size: 14px;padding: 0 15px;border: 1px solid #C31618;">在线客服</span>
+			</div>
+			<div class="code">
+				<img src="img/ma1.jpg"/>
+				<span style="font-size: 14px;line-height: 35px;">利仁官方微博</span>
+			</div>
+			<div class="code">
+				<img src="img/ma.jpg"/>
+				<span style="font-size: 14px;line-height: 35px;">利仁官方微信</span>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="bot">
+				<span style="float: left;">版权所有  2010-2011北京利仁科技股份有限公司丨库存查询</span>
+				<span style="float: right;">京ICP备06015595号</span>
+			</div>
+		</div>
+		<div class="rb">
+			<div class="rbt">售后网点</div>
+			<div class="rbb">></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.banner{
+				width: 1000px;
+				height: 400px;
+				margin: 100px auto;
+				position: relative;
+				border: 3px solid black;
+				overflow: hidden;
+			}
+			.box{
+				width: 3000px;
+				height: 100%;
+				overflow: hidden;
+			}
+			.pic{
+				width: 1000px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				opacity: 0;
+			}
+			.pic:first-child{
+				display: block;
+				opacity: 1;
+			}
+			.btn{
+				width: 40px;
+				height: 80px;
+				background: rgba(0,0,0,0.6);
+				position: absolute;
+				top: 160px;
+			}
+			.next{
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="box">
+				<div class="pic" style="background: red;"></div>
+				<div class="pic" style="background: green;"></div>
+				<div class="pic" style="background: blue;"></div>
+			</div>
+			<div class="btn next"></div>
+			<div class="btn pre"></div>
+		</div>
+		<script src="js/common.js"></script>
+		<script>
+			function getStyle(el,attr){
+				if(typeof window.getComputedStyle == 'undefined'){
+					return el.currentStyle[attr];
+				}else{
+					return window.getComputedStyle(el,null)[attr];
+				}
+			}
+			function getCN(classname){
+				return document.getElementsByClassName(classname);
+			}
+			var banner = getCN('banner')[0];
+			var box = getCN('box')[0];
+			var next = getCN('next')[0];
+			var pre = getCN('pre')[0];
+			var pic = getCN('pic');
+/*			next.onclick = function(){
+				var pic = getCN('pic');
+				move(box,{
+					marginLeft : -2000
+				},2000,function(){
+					box.appendChild(pic[0]);
+					box.style.marginLeft = '-1000px';
+				});
+			}
+			pre.onclick = function(){
+				var pic = getCN('pic');
+				move(box,{
+					marginLeft : 0
+				},2000,function(){
+					box.insertBefore(pic[2],pic[0]);
+					box.style.marginLeft = '-1000px';
+				});
+			}*/
+			var num = 0;
+			click(next,function(){
+				num = num >= 2 ? 0 : ++ num ;
+				turn();
+			});
+			click(pre,function(){
+				num = num <= 0 ? 2 : -- num ;
+				turn();
+			});
+			function turn(){
+				var brother = siblings(pic[num]);
+				for(let i = 0; i < brother.length; i ++){
+					animate(brother[i],{opacity : 0},2000,function(){
+						css(brother[i],{display : 'none'})
+					})
+				}
+				css(pic[num],{display : 'block'})
+				animate(pic[num],{opacity : 1},2000)
+			}
+//			function move(el,obj,t,fn){
+//				if(typeof t == 'function' || t == undefined){
+//					fn = t ;
+//					t = 500 ;
+//				}
+//				var start = {}; 
+//				clearInterval(el.time);
+//				el.time = setInterval(function(){
+//					var flag = true;
+//					for(var i in obj){
+//						if(start[i] == undefined){
+//							start[i] = parseFloat(getStyle(el,i));
+//						}
+//						var cur = parseFloat(getStyle(el,i));
+//						var step = (obj[i] - start[i]) / t * 10 ;
+//						if(Math.abs(obj[i] - cur) > Math.abs(step)){
+//							el.style[i] = i == 'opacity' ?  cur + step : cur + step + 'px';
+//							i == 'opacity' ? el.style.filter = 'alpha(opacity' + cur + step * 100 + ')' : null;
+//							flag = false;
+//						}else{
+//							el.style[i] = i == 'opacity' ? obj[i] : obj[i] + 'px';
+//							i == 'opacity' ? el.style.filter = 'alpha(opacity' + obj[i] * 100 + ')' : null;
+//						}
+//					}
+//					if(flag){
+//						clearInterval(el.time);
+//						fn !== undefined ? fn() : '';
+//					}
+//				},10)
+//			}
+		</script>
+	</body>
+</html>

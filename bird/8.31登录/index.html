@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<p>欢迎您：<span></span></p>
+		<p>账号：<input type="text" id="user"/></p>
+		<p>密码：<input type="password" id="pass"/></p>
+		<p><input type="submit" value="登录" id="login"/></p>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+			var user = getId('user');
+			var pass = getId('pass');
+			var login = getId('login');
+			var span = document.getElementsByTagName('span')[0];
+			login.onclick = function(){
+				ajax({
+					url : 'http://192.168.1.186/php/load.php?action=loading',
+					type : 'post',
+					data : {
+						user : user.value,
+						pass : pass.value
+					},
+					success : function(res){
+						if(res == '登录失败！'){
+							alert(res)
+						}else{
+//							var str = res.slice(1,-1)
+//							var arr = str.split(',')
+//							var obj = {};
+//							for(var i = 0; i < arr.length; i ++){
+//								obj[arr[i].split(':')[0].slice(1,-1)] = arr[i].split(':')[1].slice(1,-1) ;
+//							}
+							var obj = JSON.parse(res)
+							span.innerHTML = obj.name
+						}
+					}
+				})
+				
+			}
+			
+		</script>
+	</body>
+</html>

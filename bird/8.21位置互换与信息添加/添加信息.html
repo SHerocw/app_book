@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				float: left;
+				margin-left: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<p>姓名：<input type="text" /></p>
+		<p>性别：<input type="text" /></p>
+		<p>年龄：<input type="text" /></p>
+		<p><button>添加</button></p>
+		<!--<div>姓名</div>
+		<div>性别</div>
+		<div>年龄</div>-->
+		<table >
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+			</tr>
+		</table>
+		<script>
+			function getTag(tagName){
+				return document.getElementsByTagName(tagName)
+			}
+			var ipt = getTag('input');
+			var btn = getTag('button')[0];
+			var div = getTag('div');
+			var tab = getTag('table')[0];
+			
+			/*btn.onclick = function(){
+				for(i = 0; i < ipt.length; i ++){
+					var newTag = document.createElement('p');
+					newTag.style.height = '21px';
+					div[i].appendChild(newTag);
+					newTag.innerHTML = ipt[i].value;
+				}
+			}*/
+			btn.onclick = function(){
+				var tr = document.createElement('tr');
+				for(var i = 0; i < ipt.length; i ++){
+					var td = document.createElement('td');
+					tr.appendChild(td);
+					td.innerHTML = ipt[i].value;
+				}
+				tab.appendChild(tr)
+			}
+		</script>
+	</body>
+</html>

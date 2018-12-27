@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.box{
+				width: 50%;
+				height: 300%;
+				float: left;
+			}
+			.item{
+				width: 100%;
+				background-repeat:no-repeat ;
+			}
+			.i1,.i6{
+				background-image: url(img/1.jpg);
+			}
+			.i2,.i5{
+				background-image: url(img/2.jpg);
+			}
+			.i3,.i4{
+				background-image: url(img/3.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box bLeft">
+			<div class="item i1"></div>
+			<div class="item i2"></div>
+			<div class="item i3"></div>
+		</div>
+		<div class="box bRight">
+			<div class="item i4"></div>
+			<div class="item i5"></div>
+			<div class="item i6"></div>
+		</div>
+		<script src="js/common.js"></script>
+		<script>
+			var bLeft = document.getElementsByClassName('bLeft')[0];
+			var bRight = document.getElementsByClassName('bRight')[0];
+			var itemL = bLeft.getElementsByClassName('item');
+			var itemR = bRight.getElementsByClassName('item');
+			var item = document.getElementsByClassName('item');
+			var body = document.body;
+		 	bRight.style.marginTop = -(itemR.length - 1) * body.offsetHeight + 'px';
+			
+			function cha(){
+				for(var i = 0;i < itemL.length;i ++){
+					itemL[i].style.height = body.offsetHeight + "px";
+					itemL[i].style.backgroundPosition = bLeft.offsetWidth - 960 + 'px center';
+				}
+				for(var j = 0;j < itemR.length; j++){
+					itemR[j].style.height = body.offsetHeight + "px";
+					itemR[j].style.backgroundPosition = - 960 + 'px center'
+				}
+			}
+			cha()
+			window.onresize = function(){
+				cha();
+				go()
+			}
+			var num = 0;
+			var num1 = itemR.length - 1;
+			var flag = true;
+			on(document,'mousewheel',move);
+			on(document,'DOMMouseScroll',move);
+			function move(e){
+				if(flag){
+					flag = false;
+					if(getDetail(e) > 0){
+						num = num <= 0 ? 0 : --num ;
+						num1 = num1 >= itemR.length - 1 ? itemR.length - 1 : ++num1;
+					}else{
+						num = num >= itemL.length - 1 ? itemL.length - 1 : ++num;
+						num1 = num1 <= 0 ? 0 : --num1 ;
+					}
+					go()
+				}
+			}
+			function go(){
+				animate(bLeft,{marginTop : -num * body.offsetHeight},300,function(){
+					flag = true;
+				})
+				animate(bRight,{marginTop : -num1 * body.offsetHeight},300,function(){
+					flag = true;
+				})
+			}
+
+		</script>
+	</body>
+</html>

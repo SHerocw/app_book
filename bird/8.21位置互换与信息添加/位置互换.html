@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<button>位置互换</button>
+		<ul>
+			<li>删我啊1<button>删除</button></li>
+			<li>删我啊2<button>删除</button></li>
+			<li>删我啊3<button>删除</button></li>
+			<li>删我啊4<button>删除</button></li>
+			<li>删我啊5<button>删除</button></li>
+			<li>删我啊6<button>删除</button></li>
+			<li>删我啊7<button>删除</button></li>
+			<li>删我啊8<button>删除</button></li>
+			<li>删我啊9<button>删除</button></li>
+			<li>删我啊10<button>删除</button></li>
+		</ul>
+		<script> 
+			var ipt = document.getElementsByTagName('input');
+			var btnt = document.getElementsByTagName('button')[0];
+			var ul = document.getElementsByTagName('ul')[0];
+			var li = ul.getElementsByTagName('li');
+			var btn = ul.getElementsByTagName('button');
+			for(var i = 0 ;i <btn.length; i ++){
+				btn[i].onclick = function(){
+					ul.removeChild(this.parentNode);
+				}	
+			}
+			btnt.onclick = function(){
+				var a = parseInt(ipt[0].value) - 1
+				var b = parseInt(ipt[1].value) - 1
+				var a1 = btn[a].previousSibling;
+				var b1 = btn[b].previousSibling;
+				li[a].removeChild(a1);
+				li[b].removeChild(b1);
+				li[a].insertBefore(b1,btn[a]);
+				li[b].insertBefore(a1,btn[b]);
+			}
+		</script>
+	</body>
+</html>

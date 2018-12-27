@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<div class="info" ng-controller="info">
+			<p>姓名: <input type="text" ng-model="name"/></p>
+			<p>年龄: <input type="text" ng-model="age"/></p>
+			<p>性别: <input type="text" ng-model="sex"/></p>
+			<button ng-click="add()">添加</button>
+			<div ng-hide="aflag">此人已存在，请勿重复添加!</div>
+			<h2>人员信息</h2>
+			<enter infos="infos"></enter>
+		</div>
+		<script>
+			var app = angular.module('myApp',[])
+			.controller('info',function($scope){
+				$scope.flag = true;
+				$scope.aflag = true;
+				$scope.infos = [];
+				$scope.add = function(){
+					this.aflag = true
+					for(var j = 0; j < this.infos.length; j ++){
+						if(this.infos[j].name == this.name && this.infos[j].age == this.age && this.infos[j].sex == this.sex ){
+							this.aflag = false;
+							break;
+						}
+					}
+					if(this.aflag){
+						this.infos.push({
+							name : this.name, 
+							age : this.age,
+							sex : this.sex
+						})
+					}
+				}
+			})
+			.directive('enter',function(){
+				return{
+					restrict : "E",
+					scope : {
+						infos : '='
+					},
+					template : `<table border="1">
+							<tr><th>姓名</th><th>年龄</th><th>性别</th><th>操作</th></tr>
+							<tr ng-repeat="(index,i) in infos">
+								<td><span ng-show="!flag">{{i.name}}</span><input type="text" ng-model="i.name" ng-show="flag"/></td>
+								<td><span ng-show="!flag">{{i.age}}</span><input type="text" ng-model="i.age" ng-show="flag"/></td>
+								<td><span ng-show="!flag">{{i.sex}}</span><input type="text" ng-model="i.sex" ng-show="flag"/></td>
+								<td><button ng-click="remove(index)">删除</button><button ng-click="change(index)">{{flag ? '确定' : '修改'}}</button></td>
+							</tr>
+						</table>`,
+					controller : function($scope){
+						$scope.remove = function(i){
+							this.infos.splice(i,1)
+						}
+						$scope.change = function(){
+							this.flag = !this.flag;
+						}
+					}
+				} 
+			})
+		</script>
+	</body>
+</html>

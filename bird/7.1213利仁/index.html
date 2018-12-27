@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="img/利仁.png"/>
+		<title>北京利仁科技股份有限公司</title>
+		<style>
+			body{
+				margin: 0;
+			}
+			.head{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.head img{
+				float: left;
+			}
+			.hnav{
+				height: 23px;
+				float: right;
+				margin-top: 28px;
+				overflow: hidden;
+				position: relative;
+			}
+			.hot{
+				width: 20px;
+				height: 12px;
+				background: url(img/hot.png) no-repeat;
+				position: absolute;
+				top: 0px;
+				left: 256px;
+			}
+			.h{
+				float: left;
+				margin: 0 18px;
+				font-size: 15px;
+				color: #666;
+				transition: all 0.5s;
+				text-align: center;
+			}
+			.h:hover{
+				transform: translate(0,-23px);
+				color: #C31618;
+			}
+			.nav{
+				background-color: #333333;
+				height: 44px;
+				position: relative;
+			}
+			.nav>div{
+				width: 1200px;
+				margin: auto;
+			}
+			.nava{
+				width: 96px;
+				color: #aaaaaa;
+				float: left;
+				text-align: center;
+				line-height: 44px;
+				overflow: hidden;
+			}
+			.navb{
+				width: 96px;
+				color: white;
+				background-color: #C31618;
+				float: left;
+				text-align: center;
+				line-height: 44px;
+			}
+			.nava:hover{
+				background-color: #242424;
+				color: white;
+			}
+			.navb:hover{
+				background-color: #d4181a;
+			}
+			input{
+				width: 150px;
+				height: 22px;
+				border: 1px solid #6C6C6C;
+				border-radius:11px ;
+				background: #333333;
+				font-size: 12px;
+				color: white;
+				padding: 0 11px;
+				outline: none;
+			}
+			.input{
+				width: 172px;
+				height: 22px;
+				float: right;
+				margin-top: 11px;
+			}
+			.search{
+				width: 22px;
+				height: 22px;
+				background-image: url(img/hot.png);
+				background-position: 0 -11px;
+				background-repeat:no-repeat ;
+				margin: 11px 10px;
+				float: right;
+			}
+			.sel{
+				/*border-bottom: 1px solid #cccccc;*/
+				width: 100%;
+				background: #FFFFFF;
+				position: absolute;
+				top: 44px;
+				left: 0px;
+				height: 0px;
+				overflow: hidden;
+				transition: all 1s;
+				z-index: 1;
+			}
+			
+			.select{
+				width: 1200px;
+				margin:auto ;
+			}
+			.select>div{
+				float: left;
+				width: 200px;
+			}
+			.nava:hover .sel{
+				height: 228px;
+			}
+			.select span{
+				font-size: 13px;
+			}
+			.s1{
+				margin-top: 20px;
+			}
+			.s1 img{
+				width: 199px;
+				border-right:1px solid #AAAAAA ;
+			}
+			.s2{
+				color: black;
+			}
+			.s2:hover{
+				color: #C31618;
+			}
+			.s3{
+				color: #C31618;
+			}
+			.sel dt{
+				font-size: 13px;
+				color: #C31618;
+			}
+			.sel dd{
+				font-size: 13px;
+				padding: 0;
+				color: black;
+			}
+			.haibao {
+				width: 100%;
+				height: 657px;
+				position: relative;
+				margin: auto;
+			}
+			.haibao img{
+				width: 100%;
+				margin: auto;
+			}
+			.dot div{
+				width: 10px;
+				height: 10px;
+				border-radius:50% ;
+				background-color: #CCCCCC;
+				float: left;
+				margin: 0px 5px;
+			}
+			.dot{
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+			}
+			.jtl,.jtr{
+				position: absolute;
+				top: 40%;
+				width: 120px;
+				height: 50px;
+				overflow: hidden;
+			}
+			.jtl{
+				left: 300px;
+				
+			}
+			.jtr{
+				right: 300px;
+			}
+			.jt1,.jt2{
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				border: 1px solid #6C6C6C;
+				color: #6C6C6C;
+				text-align: center;
+				font-size: 40px;
+				line-height: 48px;
+				position: absolute;
+			}
+			.jt1{
+				left: -50px;
+			}
+			.jt2{
+				left: 120px;
+			}
+			.jt1:hover,.jt2:hover{
+				color: #C31618;
+				border: 1px solid #C31618;
+			}
+			.haibao:hover .jt1{
+				transition: all 0.5s;
+				left: 70px;
+			}
+			.haibao:hover .jt2{
+				left: 0px;
+				transition: all 0.5s; 
+			}
+			.news{
+				width: 1200px;
+				height: 60px;
+				padding: 15px 0;
+				margin: auto;
+				overflow: hidden;
+			}
+			.nl{
+				float: left;
+			}
+			.nl1{
+				width: 35px;
+				height: 20px;
+				font-size: 13px;
+				line-height: 20px;padding: 0 15px;
+				border-radius: 10px ;
+				border: 1px solid #C31618;
+				color: #C31618;
+				float: left;
+				margin-right: 20px;
+			}
+			.nl2{
+				width: 360px;
+			}
+			.nl2 span{
+				font-size: 14px;
+				line-height: 20px;
+			}
+			.nr{
+				float: right;
+			}
+			.xl{
+				width: 20px;
+				height: 20px;
+				float: left;
+				background-image: url(img/hot.png);
+				background-position: 0 -40px;
+				background-repeat:no-repeat ;
+			}
+			.nr span{
+				float: left;
+				margin: 0 5px;
+				font-size: 14px;
+			}
+			.nr span:hover{
+				color: #C31618;
+			}
+			.fine{
+				overflow: hidden;
+			}
+			.f{
+				width: 25%;
+				float: left;
+			}
+			.shade{
+				height: 254px;
+				font-size: 22px;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: rgba(0,0,0,0);
+				opacity: 0;
+				position: relative;
+				transition:all 0.5s;
+			}
+			.f:hover .shade{
+				background-color: rgba(0,0,0,0.6);
+				opacity: 1;
+			}
+			.shader{
+				width: 100%;
+				position: absolute;
+				bottom: 20px;
+				transition:all .5s;
+			}
+			.f:hover .shader{
+				bottom: 100px;
+			}
+			.f:hover .shader1{
+				bottom:65px;
+			}
+			.cate{
+				background: url(img/m1.jpg);
+			}
+			.life{
+				background: url(img/m2.jpg);
+			}
+			.serve{
+				background: url(img/m3.jpg);
+			}
+			.video{
+				background: url(img/m4.jpg);
+			}
+			.like{
+				background: #f6f6f6;
+				height: 420px;
+				width: 100%;
+			}
+			.likec{
+				width: 1200px;
+				margin: auto;
+			}
+			.title{
+				overflow: hidden;
+				padding: 30px 0px 20px 0px;
+			}
+			.tl{
+				float: left;
+				font-size: 26px;
+			}
+			.tr{
+				float: right;
+				border: 1px solid #555555;
+				border-radius: 15px;
+				padding: 0 10px;
+				font-size: 14px;
+				margin-top: 10px;
+				cursor: pointer;
+			}
+			.product{
+				height: 320px;
+				overflow: hidden;
+				background-color: white;
+				position: relative;
+			}
+			.pro{
+				width: 220px;
+				padding: 0 40px;
+				float: left;
+				margin-bottom: 30px;
+				transition: all .5s;
+			}
+			.pro:hover{
+				transform: translate(0,-10px);
+			}
+			.product img{
+				margin-top: 30px;
+			}
+			.text{
+				text-align: center;
+				font-size: 14px;
+				line-height: 25px;
+			}
+			.t1{
+				color: #AAAAAA;
+				transition: all 1s;
+			}
+			.t2{
+				color: #242424;
+			}
+			.pro:hover .t1{
+				color: #C31618;
+			}
+			.sg{
+				width: 1px;
+				height: 130px;
+				position: absolute;
+				top: 80px;
+				left: 300px;
+				border-left: 1px solid #AAAAAA;
+			}
+			.sg1{
+				left: 300px;
+			}
+			.sg2{
+				left: 600px;
+			}
+			.sg3{
+				left: 900px;
+			}
+			.label{
+				text-align: center;
+			}
+			.label span{
+				text-align: center;
+				border-radius:15px ;
+				margin: 0 15px;
+				padding: 0 15px;
+				cursor: pointer;
+				font-size: 14px;
+			}
+			.l1{
+				background-color: #45BEF5;
+				color: white;
+			}
+			.l2{
+				color: #3ccd89;
+				border: 1px solid #3ccd89;
+			}
+			.l3{
+				color: #ff9239;
+				border: 1px solid #ff9239;
+			}
+			.l4{
+				color: #ef5a50;
+				border: 1px solid #ef5a50;
+			}
+			.l5{
+				color: #45BEF5;
+				border: 1px solid #45BEF5;
+			}
+			.l2:hover{
+				color: white;
+				background-color:  #3ccd89;
+			}
+			.l3:hover{
+				color: white;
+				background-color:  #ff9239;
+			}
+			.l4:hover{
+				color: white;
+				background-color: #ef5a50;
+			}
+			.l5:hover{
+				color: white;
+				background-color: #45BEF5;
+			}
+			.connection{
+				border-bottom: 1px solid #AAAAAA;
+				padding: 40px 0;
+			}
+			.con{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.c{
+				width: 250px;
+				height: 50px;
+				float: left;
+				border-right:1px solid #AAAAAA ;
+				cursor: pointer;
+				margin-right: 49px;
+				margin-top: 10px;
+			}
+			.c4{ 
+				border: none;
+			}
+			.c img{
+				transition: all 0.5s;
+				float: left;
+			}
+			.c span{
+				font-size: 20px;
+				line-height: 40px;
+				margin-left: 30px;
+				transition: all 0.5s;
+				float: left;
+			}
+			.c:hover img{
+				transform: translate(0,-5px);
+			}
+			.c:hover span{
+				color: #AAAAAA;
+			}
+			.foot{
+				width: 1200px;
+				margin: auto;
+				overflow: hidden;
+			}
+			.dl{
+				float: left;
+				overflow: hidden;
+			}
+			.dl dl{
+				float: left;
+				margin-left: 40px;
+			}
+			.dl dt{
+				font-size: 17px;
+				line-height: 50px;
+			}
+			.dl dd{
+				font-size: 14px;
+				color: #666666;
+				margin-left: 0px;
+				line-height: 30px;
+			}
+			.phone{
+				width: 250px;
+				height: 132px;
+				float: right;
+				margin-top: 30px;
+				text-align: right;
+				border-left: 1px solid #AAAAAA;
+			}
+			.code{
+				float: right;
+				text-align: center;
+				width: 100px;
+				margin: 40px 25px;
+			}
+			.bottom{
+				background: #F6F6F6;
+				width: 100%;
+				height: 40px;
+			}
+			.bot{
+				width: 1200px;
+				margin: auto;
+				padding: 15px 0;
+			}
+			.bot span{
+				font-size: 15px;
+				color: #6C6C6C;
+				word-spacing: 15px;
+			}
+			.rb{
+				position: fixed;
+				right: 30px;
+				bottom: 50px;
+			}
+			.rbt{
+				height: 33px;
+				width: 33px;
+				padding: 6px;
+				letter-spacing: 3px;
+				background-color: #C31618;
+				color: white;
+				font-size: 13px;	
+			}
+			.rbb{
+				height: 43px;
+				width: 43px;
+				transform: rotate(-90deg);
+				font-size: 50px;
+				line-height: 35px;
+				border: 1px solid #6C6C6C;
+				color: #6C6C6C;
+				margin-top: 10px;
+				font-weight: lighter;
+			}
+		</style>
+</head>
+	<body>
+		<div class="head">
+			<img src="img/201712291542012684.png"/>
+			<div class="hnav">
+				<div class="hot"></div>
+				<div class="h" style="color: #C31618;">首页<br />HOME</div>
+				<div class="h">关于利仁<br />ABOUT</div>
+				<div class="h">视频专区<br />VIDEO</div>
+				<div class="h">产品中心<br />PRODUCT</div>
+				<div class="h">外贸业务<br />TRADE</div>
+				<div class="h">招商合作<br />PARTNER</div>
+				<div class="h">联系利仁<br />CONTACT</div>
+				<div class="h">English<br />English</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div>
+				<div class="nava">电饼铛
+					<div class="sel">
+						<div class="select">
+							<div class="s1">
+								<img src="img/d1.jpg"/>
+								<span class="s2">利仁（Liven）LR-D3020A</span> <br /><span class="s3">查看详情</span>
+							</div>
+							<div class="s1">
+								<img src="img/d2.jpg"/>
+								<span class="s2">利仁（Liven）LRT-326A</span> <br /><span class="s3">查看详情</span>
+							</div>
+							<div class="s1">
+								<img src="img/d3.jpg"/>
+								<span class="s2">利仁（Liven）LR-S3000</span> <br /><span class="s3">查看详情</span>
+							</div>
+							<div class="s1">
+								<img src="img/d4.jpg"/>
+								<span class="s2">利仁（Liven）LR-280A</span> <br /><span class="s3">查看详情</span>
+							</div>
+							<div class="s1">
+								<img src="img/d5.jpg"/>
+								<span class="s2">利仁（Liven）LR-D4000</span> <br /><span class="s3">查看详情</span>
+							</div>
+							<div>
+								<dl>
+									<dt>热门分类</dt>
+									<dd>21cm(含)-25cm(含)电饼铛</dd>
+									<dd>26cm(含)-30cm(含)电饼铛</dd>
+									<dd>31CM及以上电饼铛</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="nava">电火锅</div>
+				<div class="nava">电压力锅</div>
+				<div class="nava">电烧烤盘</div>
+				<div class="nava">电饭煲</div>
+				<div class="nava">电蒸锅</div>
+				<div class="nava">电水瓶</div>
+				<div class="nava">电水壶</div>
+				<div class="nava">创新产品</div>
+				<div class="navb">网上购物</div>
+				<div class="search"></div>
+				<div class="input">
+					<input type="text" placeholder="电饼铛"/>
+				</div>	
+			</div>	
+		</div>
+		<div class="haibao">
+			<img src=""/><img src="img/dt.jpg"/>
+			<div class="dot">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div style="border:1px solid red;background-color: white;width: 8px;height: 8px;"></div>
+				<div></div>
+			</div>
+			<div class="jtl"><div class="jt1"><</div></div>
+			<div class="jtr"><div class="jt2">></div></div>	
+		</div>	
+		<div class="news">
+			<div class="nl">
+				<span class="nl1">NEWS</span>
+				<div class="nl2">
+					<span style="float: left;">致敬我心中的美猴王</span>
+					<span style="f	loat: right;">2016-06-19</span>
+				</div>
+			</div>
+			<div class="nr">
+				<span>精彩活动</span><span>丨</span><span>新品上市</span>
+				<div class="xl"></div>
+				<span>新浪微博</span>
+			</div>
+		</div> 
+		<div class="fine">
+			<div class="f cate">
+				<div class="shade">
+					<div class="shader"><span>精致美食</span><br /><span>Exquisite cate</span></div>
+				</div>
+			</div>
+			<div class="f life">
+				<div class="shade">
+					<div class="shader"><span>精致生活</span><br /><span>Exquisite life</span></div>
+				</div>
+			</div>
+			<div class="f serve">
+				<div class="shade">
+					<div class="shader"><span>精致服务</span><br /><span>Exquisite serve</span></div>
+				</div>
+			</div>
+			<div class="f video">
+				<div class="shade">
+					<div class="shader shader1"><span>利仁视频专区</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="like">
+			<div class="likec">
+				<div class="title">
+					<div class="tl">猜你喜欢</div>
+					<div class="tr">换一批 ></div>
+				</div>
+				<div class="product">
+					<div class="pro">
+						<img src="img/x1.jpg"/>
+						<div class="text">
+							<span class="t1">利仁（Liven）LR-D3020A </span><br /><span class="t2">查看详情</span>
+						</div>
+					</div>
+					<div class="pro">
+						<img src="img/x2.jpg"/>
+						<div class="text">
+							<span class="t1">利仁（Liven）LRT-326A </span><br /><span class="t2">查看详情</span>
+						</div>
+					</div>
+					<div class="pro">
+						<img src="img/x3.jpg"/>
+						<div class="text">
+							<span class="t1">利仁（Liven）LR-S3000</span> <br /><span class="t2">查看详情</span>
+						</div>
+					</div>
+					<div class="pro">
+						<img src="img/x4.jpg"/>
+						<div class="text">
+							<span class="t1">利仁（Liven）LR-D4000</span> <br /><span class="t2">查看详情</span>
+						</div>
+					</div>
+					<div class="label">
+						<span class="l1">电饼铛</span>
+						<span class="l2">电火锅</span>
+						<span class="l3">电烧烤盘</span>
+						<span class="l4">电压力锅</span>
+						<span class="l5">电水壶</span>
+					</div>
+					<div class="sg sg1"></div>
+					<div class="sg sg2"></div>
+					<div class="sg sg3"></div>
+				</div>
+			</div>
+		</div>
+		<div class="connection">
+			<div class="con">
+				<div class="c">
+					<img src="img/c1.png"/>
+					<span>在线选购</span>
+				</div>
+				<div class="c">
+					<img src="img/c2.png"/>
+					<span>实体店选购</span>
+				</div>
+				<div class="c">
+					<img src="img/c3.png"/>
+					<span>售后服务</span>
+				</div>
+				<div class="c c4">
+					<img src="img/c4.png"/>
+					<span>联系利仁</span>
+				</div>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="dl">
+				<dl>
+					<dt>精致美食</dt>
+					<dd>健康食谱</dd>
+					<dd>饼食文化</dd>
+					<dd>创意美食</dd>
+				</dl>
+				<dl>
+					<dt>精致生活</dt>
+					<dd>品质优生活</dd>
+					<dd>健康生活</dd>
+					<dd>厨房新概念</dd>
+				</dl>
+				<dl>
+					<dt>精致服务</dt>
+					<dd>常见问题</dd>
+					<dd>售后服务</dd>
+					<dd>客户留言</dd>
+				</dl>
+				<dl>
+					<dt>关于利仁</dt>
+					<dd>新闻动态</dd>
+					<dd>企业简介</dd>
+					<dd>发展历程</dd>
+					<dd>工作机会</dd>
+				</dl>
+			</div>
+			<div class="phone">
+				<span style="color: #C31618;font-size: 30px;">400-882-3366</span>
+				<br />
+				<br />
+				<span style="color: #6C6C6C;font-size: 14px;">周一至周日 7:30-19:30</span>
+				<br />
+				<br />
+				<span style="color: #C31618;font-size: 14px;padding: 0 15px;border: 1px solid #C31618;">微商城</span>
+				<span style="color: #C31618;font-size: 14px;padding: 0 15px;border: 1px solid #C31618;">在线客服</span>
+			</div>
+			<div class="code">
+				<img src="img/ma1.jpg"/>
+				<span style="font-size: 14px;line-height: 35px;">利仁官方微博</span>
+			</div>
+			<div class="code">
+				<img src="img/ma.jpg"/>
+				<span style="font-size: 14px;line-height: 35px;">利仁官方微信</span>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="bot">
+				<span style="float: left;">版权所有  2010-2011北京利仁科技股份有限公司丨库存查询</span>
+				<span style="float: right;">京ICP备06015595号</span>
+			</div>
+		</div>
+		<div class="rb">
+			<div class="rbt">售后网点</div>
+			<div class="rbb">></div>
+		</div>
+	</body>
+</html>

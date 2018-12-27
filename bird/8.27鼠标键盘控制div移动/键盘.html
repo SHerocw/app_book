@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 800px;
+				height: 800px;
+				border: 5px solid black;
+				margin: auto;
+			}
+			#block{
+				width: 10px;
+				height: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="block"></div>
+		</div>
+		<script src="js/common.js"></script>
+		<script>
+			window.onload = function(){
+				var box = document.getElementById('box');
+				var block = document.getElementById('block');
+				document.onkeydown = function(evt){
+					var e = evt || window.event;
+					var ml = parseInt(getStyle(block,'marginLeft'))
+					var mt = parseInt(getStyle(block,'marginTop'))
+					var wp = parseInt(getStyle(box,'width'))
+					var ws = parseInt(getStyle(block,'width'))
+					var hp = parseInt(getStyle(box,'height'))
+					var hs = parseInt(getStyle(block,'height'))
+					switch(e.keyCode){
+						case 39 :
+							if(ml >= wp-ws){
+								block.style.marginLeft = wp - ws + 'px';
+							}else{
+								block.style.marginLeft = ml + ws +'px'
+							}
+							break;
+						case 37 :
+							if(ml<=0){
+								block.style.marginLeft = 0;
+							}else{
+								block.style.marginLeft = ml - ws +'px'
+							}
+							break;
+						case 38 :
+							if(mt<=0){
+								block.style.marginTop = 0;
+							}else{
+								block.style.marginTop = mt - hs +'px'
+							}
+							break;
+						case 40 :
+							if(mt>=hp - hs){
+								block.style.marginTop = hp - hs + 'px';
+							}else{
+								block.style.marginTop = mt + hs +'px'
+							}
+							break;
+					}	
+				}
+			}
+		</script>
+	</body>
+</html>

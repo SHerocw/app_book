@@ -1,0 +1,103 @@
+/*标题样式*/
+.list{
+	width: 1100px;
+	margin: 100px auto;
+	text-align: center;
+}
+.list h1{
+	font: bold 54px/60px '楷体';
+	color: #311759;
+}
+.list h2{
+	font: 18px/32px Arial;
+	letter-spacing: 6px;
+	color: #311759;
+}
+.list h3{
+	font: bold 30px '楷体';
+	color: #311759;
+	text-align: left;
+	height: 60px;
+	background: url(../img/pen_line_long.png) no-repeat 0 58px;
+	position: relative;
+}
+.list h3 span{
+	position: absolute;
+	top: 7px;
+	right: 0;
+	width: 61px;
+	height: 58px;
+	background: url(../img/pen_list.png);
+}
+.list h3 span:hover{
+	background: url(../img/pen_list.png) -61px 0;
+	cursor: pointer;
+}
+/*列表样式*/
+.listall{
+	margin-top: 30px;
+}
+.listall a{
+	float: left;
+	width: 530px;
+	height: 240px;
+	margin: 0 20px 30px 0;
+}
+.listall .items{
+	width: 513px;
+	height: 202px;
+	background: white;
+	padding: 36px 0 0 20px;
+	border: 1px solid #FFFFFF;
+	position: relative;
+}
+.listall .swiper{
+	width: 14px;
+	height: 9px;
+	background: url(../img/list_img_over_xiaojiantou.png);
+	position: absolute;
+	top: 36px;
+	left: 0;
+}
+.listall .items:hover{
+	border: 1px solid #86759e;
+	transform: translateY(-6px);
+	transition: all 0.3s;
+}
+.listall .items:hover .swiper{
+	left: 50px;
+	transition: all .3s;
+}
+.listall .items img{
+	float: left;
+}
+.listall .items .itext{
+	width: 221px;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+.itext h4{
+	font: 20px/26px '楷体';
+	color: #454548;
+}
+.itext h5{
+	font: 14px Arial;
+	color: #6B6A6F;
+}
+.itext h6{
+	margin-top: 15px;
+	font: 15px/25px KaiTi_GB2312;
+	color: #47464a;
+}
+/*显示更多图片样式*/
+.morebtn{
+	width: 58px;
+	height: 58px;
+	background: url(../img/lis_more_btn_bg.png) 0 -58px;
+}
+.morebtn:hover{
+	background: url(../img/lis_more_btn_bg.png) 0 0;
+	cursor: pointer;
+	transition: all .5s;
+}

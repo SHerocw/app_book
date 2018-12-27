@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html,body,#me{
+				width: 100%;
+				height: 100%;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="me"></div>
+		<script>
+			$('#me').load('new_file.html .head',function(){
+				$('body').append('<script src="js/load.js"><\/script>')
+			})
+		</script>
+	</body>s
+</html>

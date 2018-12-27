@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body,.banner,.img,img{
+				width: 100%;
+				height: 100%;
+			}
+			.banner{
+				position: relative;
+				/*overflow: hidden;*/
+			}
+			img{
+				position: absolute;
+				display: none;
+			}
+			img:first-child{
+				display: block;
+			}
+			.lead{
+				width: 200px;
+				height: 30px;
+				text-align: center;
+				position: absolute;
+				bottom: 100px;
+				left: 46%;
+			}
+			.arrow{
+				width: 30px;
+				height: 30px;
+				background: white;
+				color: #cc00ff;
+				font-size: 26px;
+				line-height: 30px;
+				border-radius: 50%;
+				text-align: center;
+			}
+			.arrow:hover{
+				cursor: pointer;
+				background: #CC00FF;
+				color: white;
+			}
+			.arrowleft{
+				float: left;
+			}
+			.arrowright{
+				float: right;
+			}
+			.dot{
+				display: inline-block;
+				border-radius: 20px;
+				width: 60px;
+				height: 14px;
+				background: white;
+				border: 1px solid #999;
+				text-align: center;
+				margin-top: 8px;
+			}
+			span{
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				border: 1px solid #999999;
+				transform: translateY(-4px);
+				cursor: pointer;
+			}
+			.cur{
+				background: #0000ee;
+			}
+			.t1l,.t2l,.t3l{
+				color: #999999;
+				font: bold 60px '华文行楷'
+			}
+			.t1r,.t2r,.t3r{
+				color: white;
+				font: bold 40px '隶书';
+				text-shadow: 3px 3px 10px #999999;
+			}
+			.text>div *{
+				position: absolute;
+			}
+			.t1l{
+				top: 35%;
+				left: 40%;
+			}
+			.t1r{
+				top: 45%;
+				right: 45%;
+			}
+			.t2,.t3{
+				display: none;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="img">
+				<img src="img/1.jpg"/>
+				<img src="img/2.jpg"/>
+				<img src="img/3.jpg"/>
+			</div>
+			<div class="lead">
+				<div class="arrow arrowleft"><</div>
+				<div class="dot">
+					<span class="cur"></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="arrow arrowright">></div>
+			</div>
+			<div class="text">
+				<div class="t1">
+					<div class="t1l">Books are the mirrors of the soul</div>
+					<div class="t1r">书籍是灵魂的镜子</div>
+				</div>
+				<div class="t2">
+					<div class="t2l">Why are you trying so hard to fit in when you were born to stand out? </div>
+					<div class="t2r">如果你生来就与众不同，何苦非要融入这群乌合之众？</div>
+				</div>
+				<div class="t3">
+					<div class="t3l">Aspire to inspire until I expire</div>
+					<div class="t3r">生命不息，奋斗不止</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var num = 0;
+			function change(){
+				$('img').eq(num).stop(true,true).fadeIn(500).siblings().fadeOut(500);
+				$('span').eq(num).addClass('cur').siblings().removeClass('cur')
+			};
+			function which(){
+				$('.text').show()
+				if(num == 0){
+					$('.t1l').css({
+						left : 0,
+						top : '35%',
+						opacity : 0
+					}).animate({
+						left : '40%',
+						opacity : 1
+					});
+					$('.t1r').css({
+						right : 0,
+						top : '45%',
+						opacity : 0
+					}).animate({
+						right : '45%',
+						opacity : 1
+					});
+					$('.t1').show().siblings().hide()
+				}else if(num == 1){
+					$('.t2l').css({
+						left : '30%',
+						top : 0,
+						opacity : 0
+					}).animate({
+						top : '30%',
+						opacity : 1
+					});
+					$('.t2r').css({
+						bottom : 0,
+						left : '35%',
+						opacity : 0
+					}).animate({
+						bottom : '40%',
+						opacity : 1
+					});
+					$('.t2').show().siblings().hide()
+				}else{
+					$('.t3l').css({
+						left : 0,
+						top : 0,
+						opacity : 0
+					}).animate({
+						left : '30%',
+						top : '35%',
+						opacity : 1
+					});
+					$('.t3r').css({
+						bottom : 0,
+						right : 0,
+						opacity : 0
+					}).animate({
+						bottom : '40%',
+						right : '30%',
+						opacity : 1
+					});
+					$('.t3').show().siblings().hide()
+				}
+			};
+			function goNext(){
+				num = num >= $('img').length - 1 ? 0 : ++num;
+				change()
+			};
+			function goPrev(){
+				num = num <= 0 ? $('img').length - 1 : --num;
+				change()
+			}
+			$('.arrowright').click(function(){
+				goNext();
+				which();
+			})
+			$('.arrowleft').click(function(){
+				goPrev()
+				which();
+			})
+			$('span').click(function(){
+				$(this).addClass('cur').siblings().removeClass('cur');
+				$('img').eq($(this).index()).stop(true,true).fadeIn(500).siblings().fadeOut(500);
+				num = $(this).index();
+				which();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/font-awesome.css"/>
+		<style>
+			*{
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			body{
+				background: url(img/Flowers_Wallpapers_91.jpg);
+				background-size: cover;
+			}
+			.box{
+				width: 320px;
+				height: 250px;
+				padding: 40px 60px ;
+				background: rgba(255,255,255,0.5);
+				border-radius: 10px;
+				margin: auto;	
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			input{
+				width: 260px;
+				height: 40px;
+				border-radius: 5px;
+				border: none;
+				outline: none;
+				margin-bottom: 30px;
+				padding: 5px 30px;
+				font: 20px '楷体';
+				color: #53913e;
+			}
+			button{
+				width: 320px;
+				height: 50px;
+				border: none;
+				border-radius: 5px;
+				background: #84be4d;
+				outline: none;
+				margin-top: 40px;
+				font: 23px '楷体';
+				color: white;
+			}
+			.blog{
+				display: none;
+			}
+			span{
+				font: 200px '华文行楷';
+				position: absolute;
+				bottom: -150px;
+				right: -100px;
+				transform: rotate(-20deg);
+				color: #53913e;
+				text-shadow: 0 0 50px white;
+			}
+			.fa-user-o{
+				position: absolute;
+				top: 55px;
+				left: 65px;
+				color: #84BE4D;
+				font-size: 20px;
+			}
+			.fa-lock{
+				position: absolute;
+				top: 135px;
+				left: 66px;
+				color: #84BE4D;
+				font-size: 23px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box breg">
+			<input type="text" class="username" placeholder="账号" />
+			<input type="password" class="psd" placeholder="密码" />
+			<button class="reg">注册</button>
+			<span>Welcome</span>
+			<i class="fa fa-user-o"></i>
+			<i class="fa fa-lock"></i>
+		</div>
+		<div class="box blog">
+			<input type="text" class="user_log" placeholder="账号" />
+			<input type="password" class="psd_log" placeholder="密码" />
+			<button class="log">登录</button>
+			<span>Welcome</span>
+		</div>
+		<script type="text/javascript">
+			function getclass(classname){
+				return document.getElementsByClassName(classname)[0];
+			}
+			var username = getclass('username');
+			var psd = getclass('psd');
+			var reg = getclass('reg');
+			var breg = getclass('breg');
+			var blog = getclass('blog');
+			var userInfo = [];
+			reg.onclick = function(){
+				if(username.value==''){
+					alert('账号为空，请输入账号')
+				}else if(psd.value==''){
+					alert('密码为空，请输入密码')
+				}else if(username.value==psd.value){
+					alert('账号与密码相同，请重新输入')
+				}else{
+					userInfo.push({
+						username:username.value,
+						psd:psd.value
+					});
+					alert('注册成功，欢迎您');
+					breg.style.display = 'none';
+					blog.style.display = 'block';
+				}	
+			}
+			var user_log = getclass('user_log');
+			var psd_log = getclass('psd_log');
+			var log = getclass('log');
+			log.onclick = function(){
+				for (i = 0; i < userInfo.length; i++){
+					if(userInfo[i].username==user_log.value&&userInfo[i].psd==psd_log.value){
+						alert('登录成功，欢迎回来')
+					}
+					else{
+						alert('账号或密码错误，请重新输入')
+					}
+				}
+			}
+		</script>
+		
+	</body>
+</html>

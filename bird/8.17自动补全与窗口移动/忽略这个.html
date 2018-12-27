@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			moveTo(0,0)
+			var x = 0;
+			var y = 0;
+			var m = 10;
+			var n = 0;
+			setInterval(function(){
+				x += m ;
+				y += n ;
+				if(x == 0){
+					if(y == 0){
+						m = 10;
+						n = 0;
+					}else if(y >= 700){
+						m = 0;
+						n = -10;
+					}
+				}else if(x >= 1600){
+					if(y == 0){
+						m = 0;
+						n = 10
+					}else if(y >= 700){
+						m = -10;
+						n = 0;
+					}
+				}
+				moveTo(x,y)
+			},10)
+		</script>
+	</body>
+</html>

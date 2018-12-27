@@ -1,0 +1,93 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+}
+li{
+	list-style: none;
+}
+.header{
+	width: 100%;
+	background: white;
+	height: 1.25rem;
+	padding: 0.15625rem;
+	display: flex;
+	flex-shrink:0;	
+}
+.wrapper{
+	height: 100%;
+	overflow: hidden;
+}
+.common{
+	flex-grow: 1;	
+	display: flex;
+	flex-direction: column;
+}
+.option{
+	background: #e8e8e8;
+	padding: 0.15625rem;
+	display: flex;
+	position: relative;
+	flex-shrink: 0;
+}
+.option>div{
+	flex-grow: 1;
+	text-align: center;
+	line-height: 0.9375rem;
+	font-size: 0.4375rem;
+}
+.lesinfo img{
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-right: 0.46875rem;
+}
+.lesinfo h2{
+	font-size: 0.5rem;
+}
+.lesinfo p{
+	font-size: 0.4375rem;
+	color: #666;
+}
+.no_nav{
+	display: none;
+}
+.slide-left-enter{
+	transform:translate(100%,0);
+}
+.slide-left-enter-to{
+	transform:translate(0,0);
+}
+.slide-left-enter-active{
+    transition:all 0.3s;
+}
+.slide-left-leave-active{
+    transition:all 0.3s;
+}
+.slide-left-leave{
+    transform:translate(0,0);
+}
+.slide-left-leave-to{
+    transform:translate(100%,0);
+}
+.fade-enter{
+	transform:translate(-100%,0);
+}
+.fade-enter-to{
+	transform:translate(0,0);
+}
+.fade-enter-active{
+    transition:all 0.3s;
+}
+.fade-leave-active{
+    transition:all 0.3s;
+}
+.fade-leave{
+    opacity: 1;
+}
+.fade-leave-to{
+    opacity: 0;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.box{
+				width: 100%;
+				height: 300%;
+			}
+			.item{
+				width: 100%;
+			}
+			.item:nth-child(1){
+				background: darkkhaki;
+			}
+			.item:nth-child(2){
+				background: palegreen;
+			}
+			.item:nth-child(3){
+				background: palegoldenrod;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<script>
+			$(function(){
+				var flag = true;
+				var num = location.hash.substr(1) || 0;
+				$('.item').css('height',$('body').height());
+				$(window).resize(function(){
+					$('.item').css('height',$('body').height());
+					$('.box').css('marginTop' , -num * $('body').height())
+				});
+				$('.box').animate({
+					marginTop : -num * $('body').height()
+				})
+				$(document).on('mousewheel DOMMouseScroll',function(e){
+					var detail = e.originalEvent.wheelDeltaY || e.originalEvent.detail * -40;
+					if(flag){
+						flag = false;
+						if(detail > 0){
+							num = num <=0 ? 0 : --num;
+						}else{
+							num = num >= $('.item').length - 1 ? $('.item').length - 1 : ++num;
+						}
+						$('.box').animate({
+							marginTop : -num * $('body').height()
+						},function(){
+							flag = true;
+						})
+					}
+				})
+					/*出场动画*/
+//	setTimeout(function(){
+//		$('.gif').animate({padding:'5%'},function(){
+//			$(this).find('h1').show().animate({margin:0,},function(){
+//				$(this).next().show().animate({margin:0},150,function(){
+//					$(this).next().show().animate({margin:0},150,function(){
+//						$(this).next().show().animate({margin:0},100,function(){
+//							$(this).next().show().animate({margin:0},100,function(){
+//								$('.gif').delay(1000).slideUp()
+//							})
+//						})
+//					})
+//				})
+//			})
+//		})
+//	},4000)
+			})
+		</script>
+	</body>
+</html>

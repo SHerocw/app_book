@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas></canvas>
+	</body>
+	<script>
+		var canvas = document.querySelector('canvas');
+		canvas.width = 1000;
+		canvas.height = 500;
+		var ctx = canvas.getContext('2d');
+//		ctx.fillStyle = 'red';
+//		ctx.fillRect(100,100,100,100);
+//		ctx.strokeStyle = 'blue';
+//		ctx.strokeRect(100,250,100,100);
+//		ctx.arc(350,50,50,Math.PI/3,Math.PI,true);
+//		ctx.fill()
+//		ctx.stroke();
+//		ctx.moveTo(300,300)
+//		ctx.lineTo(500,500)
+//		ctx.lineTo(700,300)
+//		ctx.closePath()
+//		ctx.fill()
+//		ctx.stroke();
+		var x = 100;
+		var y = 100;
+		ctx.moveTo(x,y);
+		ctx.quadraticCurveTo(150,150,200,100);
+		ctx.quadraticCurveTo(250,50,300,100);
+		ctx.quadraticCurveTo(350,150,400,100);
+		ctx.quadraticCurveTo(450,50,500,100);
+		ctx.stroke();
+	</script>
+</html>

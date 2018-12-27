@@ -1,0 +1,13 @@
+[{
+	"src" : "img/1.jpg",
+	"name" : "产品1",
+	"price" : "300"
+},{
+	"src" : "img/2.jpg",
+	"name" : "产品2",
+	"price" : "400"
+},{
+	"src" : "img/3.jpg",
+	"name" : "产品3",
+	"price" : "700"
+}]
