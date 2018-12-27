@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,html{
+				width: 100%;
+				height: 100%;
+			}
+			*{
+				margin: 0;
+				box-sizing: border-box;
+				padding: 0;
+			}
+			.bg{
+				width: 100%;
+				height: 100%;
+				background: url(images/3.jpg);
+				background-size: cover;
+				position: relative;
+			}
+			.form{
+				width: 380px;
+				position: absolute;
+				top: 20%;
+				right: 15%;
+				background: rgba(255,255,255,0.6);
+				padding: 40px;
+				border-radius: 10px;
+			}
+			.form input{
+				width: 100%;
+				height: 40px;
+				margin: 5px 0;
+				padding: 10px;
+				border-radius: 6px;
+				border: none;
+				outline: none;
+			}
+			#turename{
+				width: 50%;
+			}
+			#register{
+				width: 100%;
+				height: 40px;
+				background: #339aa3;
+				color: white;
+				font-size: 17px;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				margin: 10px 0;
+				outline: none;
+			}
+			#powerCode{
+				width: 46%;
+				height: 40px;
+				border: none;
+				border-radius: 6px;
+				outline: none;
+				padding: 0 10px;
+				color: #666;
+			}
+		</style>
+		<script src="javascripts/jquery.js"></script>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="form">
+				<input type="text" id="username" placeholder="用户名："/>
+				<input type="password" id="password" placeholder="密码："/>
+				<input type="text" id="phone" placeholder="手机号："/>
+				<input type="text" id="turename" placeholder="真实姓名："/>
+				<select name="" id="powerCode">
+					<option value="1">系统管理员</option>
+					<option value="2">课程管理员</option>
+				</select>
+				<button id="register">注册</button>
+			</div>
+		</div>
+		<script>
+			const URL = 'http://localhost:3000'
+			$('#register').click(function(){
+				$.ajax({
+					type:"post",
+					url: URL + "/VueHandler/AdminLoginAndRegHandler?action=add",
+					async:true,
+					data : {
+						username : $('#username').val(),
+						password : $('#password').val(),
+						phone : $('#phone').val(),
+						turename : $('#turename').val(),
+						powerCode : $('#powerCode').val()
+					},
+					success: function(res){
+						location.href = './index.html'
+					}
+				});
+			})
+				
+		</script>
+	</body>
+</html>

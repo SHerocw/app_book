@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="javascripts/jquery.js"></script>
+		<style type="text/css">
+			body,html{
+				width: 100%;
+				height: 100%;
+			}
+			*{
+				margin: 0;
+				box-sizing: border-box;
+				padding: 0;
+			}
+			.form b{
+				font-style: normal;
+				font-size: 12px;
+				margin-left: 10px;
+				color: #00b7ff;
+				cursor: pointer;
+			}
+			.form span{
+				margin-left: 15px;
+				background: #00B7FF;
+				padding: 5px 10px;
+				color: palegoldenrod;
+			}
+			.bg{
+				width: 100%;
+				height: 100%;
+				background: url(images/3.jpg);
+				background-size: cover;
+				position: relative;
+			}
+			.form{
+				width: 380px;
+				position: absolute;
+				top: 20%;
+				right: 15%;
+				background: rgba(255,255,255,0.6);
+				padding: 40px;
+				border-radius: 10px;
+			}
+			.form input{
+				width: 100%;
+				height: 40px;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 6px;
+				border: none;
+				outline: none;
+			}
+			#veri{
+				width: 50%;
+			}
+			.login{
+				width: 100%;
+				height: 40px;
+				background: #339aa3;
+				color: white;
+				font-size: 17px;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				margin: 10px 0;
+				outline: none;
+			}
+			.form p{
+				text-align: right;
+				margin-top: 20px;
+				font-size: 12px
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="form">
+				<input type="text" id="username" placeholder="账号："/>
+				<input type="password" id="password" placeholder="密码："/>
+				<input type="text" id="veri" placeholder="验证码："/><span></span><b>换一个?</b>
+				<button class="login">登 录</button><i></i>
+				<p>还没有账号？<a href="register.html">立即注册</a></p>
+			</div>
+				
+		</div>
+			
+		<script>
+			const URL = 'http://localhost:3000'
+			function getVer(){
+				$.ajax({
+					type:"get",
+					url: URL + "/VueHandler/AdminLoginAndRegHandler?action=verification",
+					async:true,
+					success : function(res){
+						if(res.success == '获取验证码成功'){
+							$('span').html(res.data)
+						}
+					}
+				});
+			}
+			getVer()
+			$('b').click(getVer)
+			$('button').click(function(){
+				$.ajax({
+					type:"get",
+					url: URL + "/VueHandler/AdminLoginAndRegHandler",
+					async:true,
+					data :{
+						action : 'checkVerification',
+						veri : $('#veri').val()
+					},
+					success:function(res){
+						if(res.success == '验证码正确'){
+							$.ajax({
+								type:"post",
+								url: URL + "/VueHandler/AdminLoginAndRegHandler?action=login",
+								data : {
+									username : $('#username').val(),
+									password : $('#password').val()
+								},
+								async:true,
+								success : function(res){
+									console.log(res)
+									if(res.success){
+										$('i').html(res.success)
+										location.href = 'my_center.html'
+									}else{
+										getVer()
+									}
+								}
+							});
+						}
+					}
+				});
+			})
+		</script>
+	</body>
+</html>
